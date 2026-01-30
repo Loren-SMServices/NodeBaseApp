@@ -1,0 +1,79 @@
+# Node.js Base Project
+
+Este es un proyecto base (boilerplate) robusto y bien estructurado para iniciar aplicaciones backend con **Node.js** y **Express**. Está diseñado para ser escalable, fácil de mantener y sigue las mejores prácticas de desarrollo.
+
+## 🚀 Tecnologías Usadas
+
+El proyecto utiliza un stack tecnológico moderno y eficiente:
+
+- **[Node.js](https://nodejs.org/)**: Entorno de ejecución para JavaScript.
+- **[Express](https://expressjs.com/)**: Framework web rápido y minimalista.
+- **[Helmet](https://helmetjs.github.io/)**: Middleware de seguridad para configurar cabeceras HTTP.
+- **[Cors](https://github.com/expressjs/cors)**: Middleware para habilitar Cross-Origin Resource Sharing.
+- **[Morgan](https://github.com/expressjs/morgan)**: Logger de peticiones HTTP para facilitar la depuración.
+- **[Dotenv](https://github.com/motdotla/dotenv)**: Carga de variables de entorno desde archivos `.env`.
+- **[Nodemon](https://nodemon.io/)**: Utilidad para reiniciar automáticamente el servidor durante el desarrollo.
+
+## 📂 Estructura del Proyecto
+
+La arquitectura del proyecto separa claramente las responsabilidades para mantener el código limpio y organizado:
+
+```text
+/src
+ ├── /config       # Configuración global y variables de entorno (Base de datos, claves API, puertos).
+ ├── /controllers  # Controladores: Manejan la lógica de entrada/salida de las peticiones (Req/Res).
+ ├── /middlewares  # Middlewares Express: Funciones que se ejecutan antes del controlador (Auth, Errores).
+ ├── /models       # Modelos de datos: Esquemas de BD (Mongoose, Sequelize, TypeORM).
+ ├── /routes       # Rutas: Definición de endpoints y asociación con sus controladores.
+ ├── /services     # Servicios: Lógica de negocio pura, separada del control HTTP.
+ ├── /utils        # Utilidades: Funciones auxiliares reutilizables (Loggers, formateadores, validadores).
+ ├── app.js        # Inicialización de la app Express y carga de middlewares globales.
+ └── server.js     # Punto de entrada: Arranca el servidor HTTP.
+```
+
+## 🛠️ Instalación
+
+Sigue estos pasos para configurar el proyecto en tu máquina local:
+
+1.  **Clona el repositorio** (si aplica) o descarga el código.
+2.  **Instala las dependencias**:
+    Abre una terminal en la raíz del proyecto y ejecuta:
+    ```bash
+    npm install
+    ```
+3.  **Configura las variables de entorno**:
+    El proyecto incluye un archivo `.env.example`. Crea una copia llamada `.env` para tus variables locales:
+    ```bash
+    cp .env.example .env
+    # En Windows (Powershell): copy .env.example .env
+    ```
+
+## ▶️ Cómo Arrancar
+
+Tienes disponibles los siguientes scripts para ejecutar la aplicación:
+
+### Modo Desarrollo
+Para trabajar en local, utiliza este comando. Iniciará el servidor con `nodemon`, reiniciando automáticamente ante cambios en el código:
+```bash
+npm run dev
+```
+
+### Modo Producción
+Para ejecutar la aplicación en un entorno productivo (sin reinicio automático):
+```bash
+npm start
+```
+
+## 🧪 Verificar el Estado
+
+Una vez arrancado el servidor (por defecto en el puerto 3000), puedes comprobar que todo funciona correctamente haciendo una petición al endpoint de salud:
+
+- **URL**: `http://localhost:3000/api/health`
+- **Respuesta esperada**:
+  ```json
+  {
+    "status": "success",
+    "message": "Server is running",
+    "timestamp": "..."
+  }
+  ```
