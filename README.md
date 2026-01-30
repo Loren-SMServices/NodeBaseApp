@@ -7,6 +7,7 @@ Este es un proyecto base (boilerplate) robusto y bien estructurado para iniciar 
 El proyecto utiliza un stack tecnológico moderno y eficiente:
 
 - **[Node.js](https://nodejs.org/)**: Entorno de ejecución para JavaScript.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset tipado de JavaScript.
 - **[Express](https://expressjs.com/)**: Framework web rápido y minimalista.
 - **[Helmet](https://helmetjs.github.io/)**: Middleware de seguridad para configurar cabeceras HTTP.
 - **[Cors](https://github.com/expressjs/cors)**: Middleware para habilitar Cross-Origin Resource Sharing.
@@ -27,8 +28,8 @@ La arquitectura del proyecto separa claramente las responsabilidades para manten
  ├── /routes       # Rutas: Definición de endpoints y asociación con sus controladores.
  ├── /services     # Servicios: Lógica de negocio pura, separada del control HTTP.
  ├── /utils        # Utilidades: Funciones auxiliares reutilizables (Loggers, formateadores, validadores).
- ├── app.js        # Inicialización de la app Express y carga de middlewares globales.
- └── server.js     # Punto de entrada: Arranca el servidor HTTP.
+ ├── app.ts        # Inicialización de la app Express y carga de middlewares globales.
+ └── server.ts     # Punto de entrada: Arranca el servidor HTTP.
 ```
 
 ## 🛠️ Instalación
@@ -53,13 +54,18 @@ Sigue estos pasos para configurar el proyecto en tu máquina local:
 Tienes disponibles los siguientes scripts para ejecutar la aplicación:
 
 ### Modo Desarrollo
-Para trabajar en local, utiliza este comando. Iniciará el servidor con `nodemon`, reiniciando automáticamente ante cambios en el código:
+Para trabajar en local, utiliza este comando. Iniciará el servidor con `nodemon` y `ts-node`, reiniciando automáticamente ante cambios:
 ```bash
 npm run dev
 ```
 
-### Modo Producción
-Para ejecutar la aplicación en un entorno productivo (sin reinicio automático):
+### Build y Producción
+Para compilar el código TypeScript a JavaScript:
+```bash
+npm run build
+```
+
+Para ejecutar la aplicación en producción (usando el código compilado en `dist/`):
 ```bash
 npm start
 ```

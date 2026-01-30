@@ -1,6 +1,6 @@
-const app = require('./app');
-const config = require('./config/config');
-const logger = require('./utils/logger');
+import app from './app';
+import { config } from './config/config';
+import { logger } from './utils/logger';
 
 const PORT = config.port;
 
