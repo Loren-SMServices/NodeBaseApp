@@ -77,3 +77,31 @@ Una vez arrancado el servidor (por defecto en el puerto 3000), puedes comprobar 
     "timestamp": "..."
   }
   ```
+
+## 🐳 Docker
+
+El proyecto incluye configuración lista para contenerizar la aplicación.
+
+### Construir la imagen
+
+Ejecuta el siguiente comando en la raíz del proyecto para construir la imagen de Docker:
+
+```bash
+docker build -t node-base-app .
+```
+
+### Ejecutar el contenedor
+
+Una vez construida la imagen, puedes arrancar un contenedor mapeando el puerto 3000:
+
+```bash
+docker run -p 3000:3000 --name mi-api-node node-base-app
+```
+
+### Variables de entorno en Docker
+
+Para pasar variables de entorno al contenedor (como las definidas en tu `.env`), usa la opción `--env-file`:
+
+```bash
+docker run -p 3000:3000 --env-file .env node-base-app
+```
